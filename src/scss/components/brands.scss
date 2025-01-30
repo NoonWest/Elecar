@@ -1,0 +1,19 @@
+.brands {
+}
+.brands__container {
+}
+.brands__logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  column-gap: clamp(4rem, 2.973rem + 4.57vw, 6.625rem);
+  row-gap: 60px;
+}
+.brands__logo {
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}

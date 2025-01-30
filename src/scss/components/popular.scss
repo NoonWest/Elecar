@@ -1,0 +1,153 @@
+.popular {
+  margin-top: 213px;
+}
+
+.popular__container {
+  // Container styles
+}
+
+.popular__title {
+  @include title-center;
+  padding-bottom: 64px;
+}
+
+// ------------- SLIDER
+.popular__slider-container {
+  position: relative; // Ensure the container is the reference for absolute positioning
+  width: 100%;
+  max-width: 870px;
+  margin: 0 auto;
+  padding-bottom: 65px; // Add padding to ensure space for the pagination
+}
+
+.popular__slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+.swiper-wrapper {
+  display: flex;
+}
+
+.swiper-slide {
+  width: clamp(14.25rem, 13.516rem + 3.26vw, 16.125rem) !important; // Fixed width for slides
+  flex-shrink: 0;
+}
+
+.popular__slider-card {
+  position: relative;
+  border-radius: 20px;
+  background: $container;
+  padding: 32px 21px 24px 24px;
+  box-sizing: border-box;
+
+  overflow: hidden;
+  &::before {
+    position: absolute;
+    content: '';
+    width: clamp(11.25rem, 11.005rem + 1.09vw, 11.875rem);
+    height: clamp(11.25rem, 11.005rem + 1.09vw, 11.875rem);
+    left: -44px;
+    top: -44px;
+
+    border-radius: 50%;
+    background-color: rgba(55, 74, 109, 0.5);
+    filter: blur(60px);
+    z-index: -1;
+  }
+}
+
+.popular__card-header {
+  // Header styles
+}
+
+.popular__card-model {
+  @include font(600, $h2, $title);
+}
+
+.popular__card-name {
+  @include font(400, $h4, $text);
+}
+
+.popular__card-image {
+  display: flex;
+  justify-content: end;
+  padding-top: 12px;
+  padding-bottom: 20px;
+}
+
+.card__image {
+  width: clamp(10rem, 9.511rem + 2.17vw, 11.25rem);
+}
+
+.popular__card-spec {
+  display: flex;
+  row-gap: 8px;
+  column-gap: 20px;
+  flex-wrap: wrap;
+  padding-bottom: 31px;
+}
+
+.popular__card-details {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  svg {
+    font-size: 16px;
+  }
+}
+
+.popular__card-info {
+  @include font(400, $smaller, none);
+}
+
+.popular__card-footer {
+  // Footer styles
+}
+
+.popular__card-price {
+  @include font(600, $h3, none);
+}
+
+.popular__card-btn {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px 0;
+  padding: 12px 16px;
+  background: $blue;
+  border: none;
+
+  transition: background-color .3s ease;
+  &:hover {
+    background-color: $blue-alt;
+  }
+}
+
+.cart__icon {
+  font-size: clamp(1.25rem, 1.152rem + 0.43vw, 1.5rem);
+}
+
+.swiper-pagination {
+  position: absolute; // Position the pagination absolutely
+  bottom: 20px; // Adjust this value to position the pagination below the slider
+  left: 50%; // Center the pagination horizontally
+  transform: translateX(-50%); // Center the pagination horizontally
+  display: flex;
+  justify-content: center;
+
+  input[type="radio"] {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid $blue;
+    margin: 0 5px;
+    cursor: pointer;
+
+    &:checked {
+      background: $blue;
+    }
+  }
+}

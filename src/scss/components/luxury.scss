@@ -1,0 +1,127 @@
+.luxury {
+  margin-top: 114px;
+}
+.luxury__container {
+}
+.luxury__title {
+  @include title-center;
+}
+.luxury__filter {
+  max-width: 888px;
+  margin: 0 auto;
+}
+.luxury__btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+
+  margin: 48px 0 72px;
+}
+.luxury__btn {
+  @include font (400, $h4, #585959);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  width: clamp(3rem, 2.902rem + 0.43vw, 3.25rem);
+  height: clamp(3rem, 2.902rem + 0.43vw, 3.25rem);
+
+  border-radius: 16px;
+  background-color: $container;
+
+  transition: background-color .3s ease, color .3s ease, filter .3s ease;
+  &.active, &:hover {
+    color: $text-white;
+    background-color: $blue;
+    
+    img {
+      filter: invert(1) grayscale(1) brightness(200%);
+    }
+  }
+  img {
+    width: 30px;
+
+    &:hover, &.active {
+      
+    }
+  }
+}
+.luxury__cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 72px;
+}
+.luxury__card {
+  position: relative;
+  
+  padding: 32px 16px;
+  box-sizing: border-box;
+
+  width: clamp(14.25rem, 13.761rem + 2.17vw, 15.5rem);
+  height: clamp(17.438rem, 16.63rem + 3.59vw, 19.5rem);
+  border-radius: 20px;
+  background: $container;
+  z-index: 1;
+
+  overflow: hidden;
+  &::before {
+    position: absolute;
+    content: '';
+    width: clamp(11.25rem, 11.005rem + 1.09vw, 11.875rem);
+    height: clamp(11.25rem, 11.005rem + 1.09vw, 11.875rem);
+    left: 34px;
+    top: 60px;
+
+    border-radius: 50%;
+    background-color: rgba(55, 74, 109, 0.5);
+    filter: blur(60px);
+    z-index: -1;
+  }
+}
+.luxury__card-header {
+}
+.luxury__card-brand {
+  @include font (600, $h2, $title);
+}
+.luxury__card-name {
+  @include font (400, $h4, $text);
+}
+.luxury__image {
+  margin-top: 32px;
+  margin-bottom: 38px;
+}
+.luxury__card-image {
+}
+.luxury__card-footer {
+}
+.luxury__card-price {
+  @include font (600, $h3, $title);
+  border: none;
+}
+.luxury__card-btn {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px 0;
+  padding: 12px 16px;
+  background-color: $blue;
+  border: none;
+
+  transition: background-color .3s ease;
+  &:hover {
+    background-color: $blue-alt;
+  }
+}
+
+.luxury__card.tesla {
+}
+.luxury__card.audi {
+}
+.luxury__card.porsche {
+}
+.luxury__card.hidden {
+  display: none;
+}
