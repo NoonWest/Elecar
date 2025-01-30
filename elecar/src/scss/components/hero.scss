@@ -1,0 +1,179 @@
+.hero {
+  position: relative;
+  &::before, &::after {
+    display: none;
+    position: absolute;
+    content: '';
+    border-radius: 50%;
+    background: rgba(55, 74, 109, 0.5);
+    filter: blur(90px);
+    // transform: translate(-50%, -50%);
+
+    z-index: -1;
+  }
+  &::before {
+    width: clamp(25rem, 22.55rem + 10.87vw, 31.25rem);
+    height: clamp(25rem, 22.55rem + 10.87vw, 31.25rem);
+    top: clamp(-11.25rem, -11rem + -1.09vw, -11.87rem);
+    left: clamp(-8.81rem, -16.49rem + 34.13vw, 10.81rem);
+    // top: -190px;
+    // left: 173px;
+  }
+  &::after {
+    // display: none;
+    width: clamp(18.75rem, 16.3rem + 10.87vw, 25rem);
+    height: clamp(18.75rem, 16.3rem + 10.87vw, 25rem);
+    bottom: clamp(4.56rem, 6.3rem + -7.72vw, 0.13rem);
+    right: clamp(-8.75rem, -16.16rem + 32.93vw, 10.19rem);
+    // bottom: 2px;  2 73
+    // right: 163px; 163 -140
+    
+  }
+}
+.hero__container {
+}
+.hero__title {
+  @include font (600, $h1, none);
+  text-align: center;
+}
+.hero__car {
+  padding-top: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero__car-name {
+  text-align: center;
+  font-weight: 600;
+  font-size: clamp(1rem, 0.804rem + 0.87vw, 1.5rem);
+}
+.hero__car-type {
+  display: flex;
+  justify-content: center;
+  padding-top: 14px;
+  padding-bottom: 47px;
+  gap: 3px;
+}
+.hero__logo-text {
+  font-weight: 400;
+  font-size: clamp(0.813rem, 0.739rem + 0.33vw, 1rem);
+  color: $text;
+}
+.hero__car-image {
+  width: clamp(17.5rem, 15.054rem + 10.87vw, 23.75rem);
+  height: clamp(10.25rem, 8.807rem + 6.41vw, 13.938rem);
+}
+.hero__car-cards {
+  display: flex;
+  gap: clamp(3.625rem, 2.476rem + 5.11vw, 6.563rem);
+
+  padding-top: 40px;
+}
+.hero__car-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  &:hover .temperature-icon {
+    transition: color .3s ease;
+    color: #FF4500;
+  }
+  &:hover .mileage-icon {
+    transition: color .3s ease;
+    color: #00BFFF;
+  }
+  &:hover .battery-icon {
+    transition: color .3s ease;
+    color: #32CD32;
+  }
+}
+.hero__card-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  width: 32px;
+  height: 32px;
+
+  background: $container;
+}
+.hero__card-type {
+  padding-top: 17px;
+}
+.hero__card-value {
+  @include font (600, $h2, none);
+}
+.hero__card-spec {
+  font-weight: 400;
+  font-size: clamp(0.625rem, 0.552rem + 0.33vw, 0.813rem);
+  color: $text-light;
+}
+.hero__btn {
+  position: relative;
+  margin-top: 90px;
+}
+.hero__btn-link {
+  @include font (500, $small, none);
+  text-transform: uppercase;
+}
+// Icons 
+.flash__icon {
+}
+.temperature-icon {
+}
+.mileage-icon {
+}
+.battery-icon {
+}
+// Pulse effect
+.hero__btn {
+
+  &:hover .hero__btn-effect:nth-child(1) {
+    animation: pulse 4s infinite linear;
+    animation-delay: 0.2s; // Задержка для первого круга
+  }
+
+  &:hover .hero__btn-effect:nth-child(2) {
+    animation: pulse 4s infinite linear;
+    animation-delay: 1s; // Большая задержка для второго круга
+  }
+}
+.hero__btn-effect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0px;
+  height: 0px;
+  border-radius: 100%;
+  opacity: 0;
+  border: 2px solid #099260; // Увеличена ширина границы до 2px
+  box-shadow: 0px 0px 5px #02DB8A;
+  z-index: -1;
+
+  &:nth-child(1) {
+    transform: translate(calc(-50% - 10px), -50%); // Смещение первого круга влево на 10px
+  }
+  &:nth-child(2) {
+    transform: translate(calc(-50% + 10px), -50%); // Смещение второго круга вправо на 10px
+  }
+}
+@keyframes pulse {
+  0% {
+    opacity: 0.0;
+    width: 0px;
+    height: 0px;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  10% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(2);
+  }
+  100% {
+    opacity: 0.0;
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
